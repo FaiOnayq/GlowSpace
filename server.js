@@ -8,7 +8,7 @@ const app = express();
 const Salon = require('./models/salons'); // Adjust the path according to your project structure
 
 const path = require('path');
-const port = 3001;
+const port = process.env.PORT;
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
