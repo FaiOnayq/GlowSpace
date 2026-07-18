@@ -1,31 +1,8 @@
-<% if (locals.errors) {%>
-    <% errors.forEach((err)=> {%>
-        <div class="alert alert-danger">
-                <%= err.msg%>
-        </div>
-    <%})%>
-
-<%}%>
-
-
-<% if (locals.message && message !="") {%>
-         
-    <div class="alert alert-success">
-            <%= message%>
-    </div>
-  <%}%>     
-      
-
-  <% if (locals.error && error !="") {%>
-         
-    <div class="alert alert-danger">
-            <%= error%>
-    </div>
-  <%}%>     
-      
-  <% if (locals.success && success !="") {%>
-         
-    <div class="alert alert-success">
-            <%= success%>
-    </div>
-  <%}%>   
+<% if (typeof messages !== 'undefined') { %>
+    <% if (messages.error && messages.error.length > 0) { %>
+        <div class="flash-message flash-error"><%= messages.error %></div>
+    <% } %>
+    <% if (messages.success && messages.success.length > 0) { %>
+        <div class="flash-message flash-success"><%= messages.success %></div>
+    <% } %>
+<% } %>

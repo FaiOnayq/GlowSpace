@@ -1,101 +1,184 @@
+/* ==========================================================================
+   GlowSpace — Login / Signup
+   ========================================================================== */
+
 @import '/node_modules/@abdulrysr/saudi-riyal-new-symbol-font/style.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #F7F8FA;
+  --color-surface: #FFFFFF;
+  --color-primary: #6E57C5;
+  --color-primary-hover: #5C46B3;
+  --color-primary-soft: #F1EDFB;
+  --color-accent: #E6CAD6;
+  --color-text: #1F1F1F;
+  --color-text-secondary: #6B7280;
+  --color-border: #E5E7EB;
+
+  --font-display: 'Poppins', 'SF Pro Display', 'Inter', sans-serif;
+  --font-body: 'Inter', 'SF Pro Display', sans-serif;
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 4px 12px rgba(31, 31, 31, 0.06);
+  --shadow-md: 0 12px 28px rgba(31, 31, 31, 0.09);
+  --shadow-lg: 0 24px 48px rgba(31, 31, 31, 0.12);
+
+  --transition: 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body);
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom right, #2E004F, #4B007D);
-  /* Background gradient */
+  background: var(--color-bg);
+  color: var(--color-text);
   position: relative;
 }
 
-
 .side-wave {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  /* Fills the entire browser viewport height */
-  width: 120vw;
-  /* Keeps aspect ratio */
-  z-index: -1;
+  display: none;
 }
 
-
 .logo img {
-  width: 50px;
-
+  width: 64px;
 }
 
 .container {
-  margin-top: -50px;
+  margin-top: 0;
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: var(--space-6, 48px) 20px;
 }
 
+header {
+  margin-bottom: 28px;
+}
 
+.formcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formcontainer h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--color-text) !important;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.formcontainer hr {
+  display: none;
+}
 
 .loginform {
   position: relative;
   display: flex;
-  background-color: white;
-  color: #2F1847;
+  background-color: var(--color-surface);
+  color: var(--color-text);
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   flex-direction: column;
-  padding: 20px;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-
-
-}
-
-.submit {
-  bottom: 20px;
-  /* Distance from the bottom of the form */
-  right: 20px;
-  /* Distance from the right of the form */
-  align-items: center;
-  display: flex;
-  gap: 20px;
-
-}
-
-.back-link {
-  padding: 10px 20px;
-  background-color: #2F1B53;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  -webkit-transition: background-color 0.3s ease;
-  -moz-transition: background-color 0.3s ease;
-  -ms-transition: background-color 0.3s ease;
-  -o-transition: background-color 0.3s ease;
-}
-
-.submit input {
-  padding: 5px 10px 5px 10px;
-
-}
-
-.submit button {
-  padding: 5px 10px 5px 10px;
-
+  padding: 50px;
+  width: 200%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  gap: 4px;
 }
 
 .container1 {
   display: flex;
   flex-direction: column;
+}
+
+.loginform label {
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  font-size: 13.5px;
+  margin-bottom: 6px;
+  margin-top: 10px;
+}
+
+.loginform input {
+  display: block;
+  padding: 12px 14px;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  transition: all var(--transition);
+}
+
+.loginform input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 4px var(--color-primary-soft);
+}
+
+.loginform .nav-link {
+  color: var(--color-primary) !important;
+  text-decoration: none !important;
+  margin-top: 14px !important;
+  font-size: 13.5px;
+  text-align: center;
+}
+
+.loginform .nav-link:hover {
+  text-decoration: underline !important;
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+
+
+.back-link {
+  padding: 12px 32px;
+  background-color: var(--color-primary);
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-display);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  width: 100%;
+}
+
+.back-link:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 i {
@@ -104,8 +187,33 @@ i {
   padding: 0;
 }
 
-.loginform input {
-  display: block;
-  padding: 5px;
+/* ==========================================================================
+   Flash messages
+   ========================================================================== */
+
+.flash-message {
   width: 100%;
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.flash-error {
+  background: #FBEAEA;
+  color: #C13F3B;
+  border: 1px solid #F3CDCD;
+}
+
+.flash-success {
+  background: var(--color-primary-soft);
+  color: var(--color-primary-hover);
+  border: 1px solid var(--color-accent);
+}
+
+@media (max-width: 480px) {
+  .loginform {
+    padding: 24px;
+  }
 }

@@ -1,16 +1,21 @@
-// Database connection
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-mongoose.connect('mongodb://0.0.0.0:27017/glowspace');
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+    console.error('❌ MONGO_URI is not defined. Check your .env file.');
+    process.exit(1);
+}
+
+mongoose.connect(MONGO_URI)
+    .then(() => console.log('✅ Connected to MongoDB Atlas successfully...'))
+    .catch((err) => console.error('❌ Database connection error:', err));
 
 const db = mongoose.connection;
 
-// Handle connection success
-db.once('open', () => {
-    console.log('✅ Connected to DB successfully...');
-});
-
-// Handle connection error
 db.on('error', (err) => {
     console.error('❌ Database connection error:', err);
 });
+
+module.exports = db;

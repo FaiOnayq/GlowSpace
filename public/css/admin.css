@@ -1,172 +1,303 @@
+/* ==========================================================================
+   GlowSpace — Admin Dashboard
+   Same design tokens as the public site, applied to the admin panel.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #F7F8FA;
+  --color-surface: #FFFFFF;
+  --color-primary: #6E57C5;
+  --color-primary-hover: #5C46B3;
+  --color-primary-soft: #F1EDFB;
+  --color-accent: #E6CAD6;
+  --color-accent-soft: #FBF3F6;
+  --color-text: #1F1F1F;
+  --color-text-secondary: #6B7280;
+  --color-border: #E5E7EB;
+  --color-danger: #D9534F;
+  --color-danger-soft: #FBEAEA;
+
+  --font-display: 'Poppins', 'SF Pro Display', 'Inter', sans-serif;
+  --font-body: 'Inter', 'SF Pro Display', sans-serif;
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --shadow-xs: 0 1px 3px rgba(31, 31, 31, 0.05);
+  --shadow-sm: 0 4px 12px rgba(31, 31, 31, 0.06);
+  --shadow-md: 0 12px 28px rgba(31, 31, 31, 0.09);
+  --shadow-lg: 0 24px 48px rgba(31, 31, 31, 0.12);
+
+  --transition: 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 * {
-  font-family: "Gentium Plus", serif;
+  font-family: var(--font-body);
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  height: 100vh;
-  background: #bdbdbd;
+  font-family: var(--font-body);
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
+
+h1, h2, h3, h4, legend {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   Shell layout
+   ========================================================================== */
 
 .container1 {
   display: flex;
   flex-direction: row;
-  height: 100vh;
-
+  min-height: 100vh;
 }
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
 
 .sidebar {
   display: flex;
   flex-direction: column;
-  background-color: #2E004F;
-  width: 20%;
-
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  z-index: 1;
-  padding: 10px;
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  width: 260px;
+  flex-shrink: 0;
+  padding: 28px 18px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
 .logo img {
-  margin-bottom: 10px;
-  width: 90%;
+  margin: 0 auto 32px;
+  display: block;
+  width: 70%;
 }
-
 
 .sidebar-link,
 .sidebar-button {
-  display: block;
-  padding: 10px 15px;
-  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  margin-bottom: 4px;
+  color: var(--color-text-secondary);
   text-decoration: none;
   background-color: transparent;
   border: none;
+  border-radius: var(--radius-sm);
   text-align: left;
   cursor: pointer;
+  font-size: 14.5px;
+  font-weight: 500;
+  width: 100%;
+  transition: all var(--transition);
 }
 
-.sidebar-link span i {
-  color: #ffffff;
+.sidebar-link span i,
+.sidebar-link i {
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  transition: color var(--transition);
 }
 
 .sidebar-link:hover,
 .sidebar-button:hover {
-  background-color: #4A006F;
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.sidebar-link:hover i {
+  color: var(--color-primary);
+}
+
+.sidebar-link.active {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.sidebar-link.active i {
+  color: var(--color-primary);
 }
 
 .sidebar-button {
-  font-size: 1rem;
+  font-size: 14.5px;
+  margin-top: auto;
 }
 
 footer {
-  position: absolute;
-  left: 0%;
-  bottom: 0%;
-  z-index: 2;
+  color: var(--color-text-secondary);
   text-align: center;
-  margin-left: 10px;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: small;
+  padding: 16px 0 0;
+  font-size: 12.5px;
 }
 
-
-
+/* ==========================================================================
+   Main content
+   ========================================================================== */
 
 .container2 {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: end;
-  margin: 30px;
-  padding: 10px;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 40px 48px;
   width: 100%;
-
 }
 
+.container2 h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+/* ==========================================================================
+   Services
+   ========================================================================== */
 
 .services {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   width: 100%;
-  background: #d3d3d3;
-  height: 100%;
-  border-radius: 10px;
-  overflow-y: auto;
-  /* Enables vertical scrolling */
-  margin: 10px;
-  padding: 10px;
+  background: transparent;
+  height: auto;
+  border-radius: var(--radius-lg);
+  margin: 0;
+  padding: 0;
   position: relative;
+  gap: 16px;
 }
 
 .service-card {
-  width: 80%;
-  /* Cards take full width of the container */
-  background-color: #f3f3f3;
-  /* Light grey background */
-  padding: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  /* Slight shadow for depth */
-  margin-bottom: 20px;
-  /* Space between cards */
-  border-radius: 10px;
+  width: 100%;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-xs);
+  margin-bottom: 0;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.service-card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
 }
 
 .service-content {
-  margin-bottom: 10px;
-  /* Space above the buttons */
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.service-content p {
+  font-size: 15px;
+  color: var(--color-text);
+}
+
+.service-content p strong {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  margin-right: 4px;
 }
 
 .service-actions {
-
-  position: relative;
+  position: static;
   text-align: right;
-  /* Align buttons to the right */
+  display: flex;
+  gap: 10px;
 }
-
-
-
 
 .edit-btn,
 .delete-btn {
-  margin-left: 10px;
-  /* Space between buttons */
-  width: 10%;
-  padding: 10px;
-  color: white;
-  background-color: #4A006F;
+  margin-left: 0;
+  width: auto;
+  padding: 9px 18px;
+  color: var(--color-primary);
+  background-color: var(--color-primary-soft);
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius-pill);
   text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition);
+}
 
+.delete-btn {
+  color: var(--color-danger);
+  background-color: var(--color-danger-soft);
 }
 
 .add-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  margin-left: 10px;
-  /* Space between buttons */
-  width: 5%;
-  padding: 10px;
-  color: white;
-  background-color: #4A006F;
+  position: static;
+  align-self: flex-end;
+  margin: 0 0 20px auto;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: #fff;
+  background-color: var(--color-primary);
   border: none;
-  border-radius: 10px;
+  border-radius: 50%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
 }
 
-.add-btn:hover,
+.add-btn:hover {
+  background-color: var(--color-primary-hover);
+  opacity: 1;
+  transform: scale(1.06);
+}
+
 .edit-btn:hover,
 .delete-btn:hover {
-
-  opacity: 0.5;
+  opacity: 1;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-xs);
 }
 
+.container2 > p {
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  text-align: center;
+  padding: 40px 0;
+}
+
+/* ==========================================================================
+   Stat cards / schedule (dashboard extras)
+   ========================================================================== */
 
 .totalBooking,
 .mostRequisted {
@@ -174,32 +305,34 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   font-size: 16px;
-  border-radius: 10px;
-  margin-right: 10px;
+  border-radius: var(--radius-md);
+  margin-right: 16px;
   margin-bottom: 20px;
-  padding: 20px;
-  width: 350.84px;
-  height: 154px;
-  background: #d3d3d3;
+  padding: 24px;
+  width: 340px;
+  max-width: 100%;
+  height: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xs);
   align-items: center;
 }
 
 .totalBooking i,
 .mostRequisted i {
-  color: #ffffff;
-  font-size: 90px;
-  text-shadow: 0px 4px 30px #2f1847;
-  ;
-
+  color: var(--color-primary);
+  font-size: 56px;
+  text-shadow: none;
 }
 
 .schedule {
-  background: #d3d3d3;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   width: 100%;
   height: 100%;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
+  border-radius: var(--radius-md);
+  margin: 10px 0;
+  padding: 20px;
 }
 
 .managmentTool {
@@ -209,38 +342,80 @@ footer {
 .managmentTool li {
   list-style: none;
   padding: 10px;
-  border-bottom: solid black;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .managmentTool li a {
   display: block;
-  color: black;
+  color: var(--color-text);
   text-decoration: none;
-
 }
 
 .managmentTool li:hover {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
-/* Style for modal */
+/* ==========================================================================
+   Modal
+   ========================================================================== */
+
 .modal {
-
   width: 100%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   overflow: auto;
-  /* Enable scroll if needed */
-
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: var(--color-surface);
   margin: 15% auto;
-  /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   width: 80%;
-  /* Could be more or less, depending on screen size */
+  box-shadow: var(--shadow-lg);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .container1 {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 16px;
+  }
+
+  .logo img {
+    margin: 0 16px 0 0;
+    width: 120px;
+  }
+
+  .sidebar-button {
+    margin-top: 0;
+  }
+
+  .container2 {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .service-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .service-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }

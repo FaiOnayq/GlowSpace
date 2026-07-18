@@ -1,3 +1,10 @@
+/* ==========================================================================
+   GlowSpace — Design System
+   Light, premium, Apple/Airbnb/Stripe-inspired aesthetic.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @font-face {
   font-family: 'Arshid';
   src: url('/arshid.otf') format('truetype');
@@ -5,50 +12,226 @@
   font-style: normal;
 }
 
+:root {
+  /* Palette */
+  --color-bg: #F7F8FA;
+  --color-surface: #FFFFFF;
+  --color-primary: #6E57C5;
+  --color-primary-hover: #5C46B3;
+  --color-primary-soft: #F1EDFB;
+  --color-accent: #E6CAD6;
+  --color-accent-soft: #FBF3F6;
+  --color-text: #1F1F1F;
+  --color-text-secondary: #6B7280;
+  --color-border: #E5E7EB;
+
+  /* Typography */
+  --font-display: 'Poppins', 'SF Pro Display', 'Inter', sans-serif;
+  --font-body: 'Inter', 'SF Pro Display', sans-serif;
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 3px rgba(31, 31, 31, 0.05);
+  --shadow-sm: 0 4px 12px rgba(31, 31, 31, 0.06);
+  --shadow-md: 0 12px 28px rgba(31, 31, 31, 0.09);
+  --shadow-lg: 0 24px 48px rgba(31, 31, 31, 0.12);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 0.28s var(--ease);
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-text);
+}
+
 .riyal-symbol {
   font-family: 'Arshid', sans-serif;
-  color: #008000; /* Optional: green color */
+  color: var(--color-primary);
   font-size: 1.1em;
   margin-right: 2px;
 }
 
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
 
-body {
-  font-family: "Gentium Plus", serif;
+nav.navbar {
+  font-family: var(--font-display);
+  background: rgba(247, 248, 250, 0.8);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   margin: 0;
-  background-color: #2E004F;
+  box-shadow: none;
 }
 
-nav {
-  font-family: "Quicksand", serif;
+.navbar .container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  flex-wrap: wrap;
 }
+
+.navbar-header {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  padding: 0;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  height: 34px;
+  width: auto;
+  transition: transform var(--transition);
+}
+
+.navbar-brand:hover img {
+  transform: scale(1.04);
+}
+
+.navbar .nav.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  float: none;
+}
+
+.navbar .nav.navbar-nav.navbar-right {
+  float: none;
+}
+
+.navbar li {
+  list-style: none;
+}
+
+.navbar .custom-link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar .custom-link:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.navbar li.active .custom-link {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.navbar-right .custom-link {
+  color: var(--color-text);
+}
+
+.navbar-right li:last-child .custom-link {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.navbar-right li:last-child .custom-link:hover {
+  background: var(--color-primary-hover);
+  color: #fff;
+}
+
+/* ==========================================================================
+   Layout containers
+   ========================================================================== */
 
 .container {
   position: relative;
   width: 100%;
-  height: 100%;
-  z-index: 2;
-  padding: 20px 100px;
-
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-8);
 }
 
 .side-wave {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: auto;
-  z-index: -1;
+  display: none;
 }
+
+/* ==========================================================================
+   Home / salons listing
+   ========================================================================== */
 
 .logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: var(--space-4);
 }
 
 .logo img {
-  width: 500px;
+  width: 280px;
+  max-width: 60%;
+  height: auto;
 }
 
 .search-bar {
@@ -56,135 +239,260 @@ nav {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 600px;
-  margin: 0 auto 20px;
+  max-width: 520px;
+  margin: 0 auto var(--space-7);
 }
 
 .search-bar input {
   width: 100%;
-  padding: 10px;
+  padding: 16px 24px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
+  font-family: var(--font-body);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
   text-align: center;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition);
+  color: var(--color-text);
+}
+
+.search-bar input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px var(--color-primary-soft);
 }
 
 .salons-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: var(--space-4);
 }
 
 .salon-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-4);
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.salon-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
 }
 
 .salon-card img {
-  max-width: 100px;
-  margin-bottom: 15px;
+  max-width: 88px;
+  height: 88px;
+  object-fit: contain;
+  margin-bottom: var(--space-3);
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  padding: 8px;
 }
 
 .salon-card h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 19px;
+  margin-bottom: var(--space-2);
 }
 
 .salon-card p {
   font-size: 14px;
-  color: #555;
-  margin-bottom: 15px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+  flex-grow: 1;
 }
 
 .salon-card .location {
-  /* Hidden by default */
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 15px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+  font-weight: 500;
 }
 
-footer {
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
+/* ==========================================================================
+   Buttons / links
+   ========================================================================== */
 
-.custom-link {
-  color: #E6CCCF;
+.back-link {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: var(--color-primary);
+  color: #fff;
   text-decoration: none;
-  z-index: 1000;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--font-display);
+  transition: all var(--transition);
+  border: none;
 }
 
-/* Salon Detail Page Styles */
-.salon-detail-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.back-link:hover {
+  background-color: var(--color-primary-hover);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
+
+/* ==========================================================================
+   Salon detail page
+   ========================================================================== */
+
+.salon-detail-container {
+  max-width: 760px;
+  margin: var(--space-7) auto;
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+}
+
 .salon-header {
   text-align: center;
-  margin-bottom: 20px;
-  color: #2F1B53;
+  margin-bottom: var(--space-6);
+  color: var(--color-text);
 }
 
 .salon-logo {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  object-fit: contain;
-  margin-bottom: 15px;
-  border: 3px solid #2F1B53;
+  object-fit: cover;
+  margin-bottom: var(--space-3);
+  border: 4px solid var(--color-accent-soft);
+  box-shadow: var(--shadow-sm);
 }
 
 .salon-name {
-  font-size: 32px;
-  color: #2F1B53;
-  margin: 10px 0;
+  font-size: 30px;
+  color: var(--color-text);
+  margin: var(--space-2) 0;
 }
-.salon-name-about{
-  font-size: 24px;
-  color: white;
-  margin: 10px 0;
+
+.salon-name-about {
+  font-size: 26px;
+  color: var(--color-text);
+  margin: var(--space-2) 0;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin: var(--space-3) 0;
+  flex-wrap: wrap;
+}
+
+.rating .fa-star {
+  font-size: 22px;
+  color: var(--color-border);
+  cursor: pointer;
+  transition: color var(--transition), transform var(--transition);
+}
+
+.rating .fa-star:hover {
+  transform: scale(1.15);
+}
+
+.rating .fa-star.checked {
+  color: var(--color-primary);
+}
+
+#rating-result {
+  margin-left: var(--space-2);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.salon-header > p {
+  color: var(--color-text-secondary);
+  font-size: 15.5px;
+  max-width: 480px;
+  margin: var(--space-3) auto;
 }
 
 .salon-info {
-  margin-bottom: 30px;
+  margin-bottom: var(--space-5);
 }
 
 .salon-info p {
   font-size: 16px;
-  color: #555;
-  margin: 10px 0;
+  color: var(--color-text-secondary);
+  margin: var(--space-2) 0;
 }
+
+.info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-2);
+  gap: var(--space-2);
+}
+
+.info-text {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+a.info-text:hover {
+  color: var(--color-primary);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.65;
+}
+
+/* Services */
 
 .salon-services {
-  margin-bottom: 30px;
+  margin-bottom: var(--space-5);
 }
 
-
+.salon-services h2 {
+  font-size: 20px;
+  margin-bottom: var(--space-3);
+  text-align: center;
+}
 
 .service-list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .service-item {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  font-size: 16px;
-  color: #555;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 15.5px;
+  color: var(--color-text);
+  transition: background var(--transition);
+  border-radius: var(--radius-sm);
+}
+
+.service-item:hover {
+  background: var(--color-bg);
 }
 
 .service-item:last-child {
@@ -192,62 +500,178 @@ footer {
 }
 
 .service-name {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .service-price {
-  color: #2E004F;
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
-.back-link {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #2F1B53;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+.salon-detail-container > .back-link {
+  display: block;
+  width: fit-content;
+  margin: var(--space-5) auto 0;
 }
 
-.back-link:hover {
-  background-color: #E6CCCF;
-  color: #000;
-  text-decoration: none;
+/* ==========================================================================
+   About page
+   ========================================================================== */
+
+.salon-header.salon-header-page {
+  text-align: center;
 }
 
-.info-container {
+.about-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 10px; 
+  gap: var(--space-6);
+  padding: var(--space-6);
+  max-width: 1100px;
+  margin: 0 auto var(--space-7);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+  flex-wrap: wrap;
 }
 
-.icon {
-  width: 20px; 
-  height: 20px;
-  margin-right: 10px; 
+.about-container .salon-services p {
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.about-container ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3) 0;
+}
+
+.about-container ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about-container ul li:last-child {
+  border-bottom: none;
+}
+
+.about-container .service-name {
+  font-family: var(--font-display);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 15.5px;
+}
+
+.about-container .salon-name-about {
+  color: var(--color-text);
+  font-size: 26px;
+}
+
+.about-container .salon-name-about h4 {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--color-text-secondary);
 }
 
 .image-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 400px;
+  height: 340px;
   width: auto;
+  border-radius: var(--radius-md);
+  object-fit: cover;
 }
 
-.about-container {
-  display: flex;
-  padding: 20px;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.image-div{
+.image-div {
   margin: auto;
+  flex: 1;
+  min-width: 260px;
 }
 
-.checked {
-  color: orange;
+.image-div img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.salon-header {
+  padding: var(--space-6) 0 var(--space-4);
+}
+
+/* Page hero heading (about page) */
+.about-container ~ .salon-header,
+.container > .salon-header:first-child {
+  text-align: center;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  color: var(--color-text-secondary);
+  text-align: center;
+  padding: var(--space-5) 0;
+  font-size: 13.5px;
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-7);
+  background: var(--color-surface);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .salons-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar .container-fluid {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .navbar-header,
+  .navbar .nav.navbar-nav {
+    justify-content: center;
+  }
+
+  .container {
+    padding: var(--space-4) var(--space-3) var(--space-6);
+  }
+
+  .salons-container {
+    grid-template-columns: 1fr;
+  }
+
+  .salon-detail-container {
+    padding: var(--space-4);
+    margin: var(--space-4) auto;
+  }
+
+  .logo img {
+    width: 200px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }

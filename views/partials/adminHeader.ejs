@@ -1,10 +1,12 @@
-<aside class="sidebar">
+
+
+<div class="sidebar">
     <div class="logo">
-        <img src="<%= '/images/GlowSpace.png' %>" alt="GlowSpace Logo">
+        <img src="/images/GlowSpace.png" alt="GlowSpace Logo">
     </div>
-    <a class="sidebar-link" href="/admin/dashboard" ><i class="bi bi-tools"></i> Dashboard</a>
-
-    <a class="sidebar-link" href="/admin/profile" ><i class="bi bi-person"></i> Profile</a>
-    <a class="sidebar-button" href="/admin/logout" ><i class="bi bi-box-arrow-left"></i> Logout</a>
-
-</aside>
+    <nav class="sidebar-nav">
+        <a href="/admin/dashboard" class="sidebar-link"><i class="bi bi-grid"></i> Dashboard</a>
+        <a href="/admin/profile" class="sidebar-link"><i class="bi bi-person"></i> Profile</a>
+    </nav>
+    <a href="/admin/logout" class="sidebar-button"><i class="bi bi-box-arrow-right"></i> Logout</a>
+</div>
