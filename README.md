@@ -32,8 +32,7 @@ To set up and run the project locally, follow these steps:
 
 ## Screenshots
 - Home Page
-  ![image](<img width="1731" height="1022" alt="glowspace-home" src="https://github.com/user-attachments/assets/74c04f1c-72b9-40a4-9d51-e0c7bd3747df" />
-)
+  ![image](https://github.com/user-attachments/assets/74c04f1c-72b9-40a4-9d51-e0c7bd3747df)
 - Salon Profile
   ![image](img/Screenshot2025-11-04005927.png)
 - About
