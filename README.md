@@ -1,5 +1,6 @@
 # Web-Project
-![logo](https://github.com/user-attachments/assets/961dc147-dc0a-4a8e-b92a-0fe628e357e3)
+![logo](https://github.com/user-attachments/assets/0585206b-8a68-4590-9842-c5426111d858)
+
 
 # GlowSpace Overview🌟
 
@@ -34,15 +35,18 @@ To set up and run the project locally, follow these steps:
 - Home Page
   ![image](https://github.com/user-attachments/assets/74c04f1c-72b9-40a4-9d51-e0c7bd3747df)
 - Salon Profile
-  ![image](img/Screenshot2025-11-04005927.png)
+  ![image](https://github.com/user-attachments/assets/3341edde-06c0-47fe-90fc-ab1e002cf73a)
 - About
-  ![image](https://github.com/user-attachments/assets/6f537278-1b30-4736-b8ef-497598aa878f)
+  ![image](https://github.com/user-attachments/assets/fb5fd8a2-7d8c-411c-86c3-fd4297357eea)
+- Sign up
+- ![image](https://github.com/user-attachments/assets/f7c228a9-d7c0-482f-b0fb-2c07d3012798)
 - Log in
-  ![image](img/Screenshot_4-11-2025_02916_localhost.jpeg)
+  ![image](https://github.com/user-attachments/assets/05548c44-5984-4058-910d-ea018210c201)
 - Salon dashboard
-  ![image](img/Screenshot_4-11-2025_02928_localhost.jpeg)
+  ![image](https://github.com/user-attachments/assets/828d0bd0-fa1d-47bd-b47d-749abbe8ef5c)
 - Salon Profile edit
-  ![image](img/Screenshot_4-11-2025_02946_localhost.jpeg)
+  ![image](https://github.com/user-attachments/assets/ee6370d8-737b-4b1f-9cfd-408e5a5bfe3d)
+
 
 
 ## Future Work
